@@ -1,0 +1,231 @@
+[
+    {
+        "name":"[Basic] Nothing",
+        "command":[""]
+    },
+    {
+        "name":"[Basic] Simple execution",
+        "command":[
+            "ls /etc",
+            "sleep 0.5",
+            "cat /etc/resolv.conf"
+        ]
+    },
+    {
+        "name":"[Basic] Run simple commands",
+        "command":[
+            "cat /etc/resolv.conf",
+            "sleep 0.5",
+            "ls -l /etc",
+            "sleep 0.5",
+            "pwd"
+        ]
+    },
+    {
+        "name":"[Basic] Wrong simple command n°1",
+        "command":["invalid"]
+    },
+    {
+        "name":"[Basic] Wrong simple command n°2",
+        "command":["ls invalid"]
+    },
+    {
+        "name":"[Line formatting] Many spaces and tabs",
+        "command":["\t\t    ls\t     \t-l    \t\t  \t -a /usr   \t\t"]
+    },
+    {
+        "name":"[Line formatting] Many spaces and tabs with absolute path",
+        "command":["\t\t    /bin/ls\t     \t-l    \t\t  \t -a /usr   \t\t"]
+    },
+    {
+        "name":"[Path handling] Default PATH",
+        "command":["ls"]
+    },
+    {
+        "name":"[Path handling] 'PATH='",
+        "env":{
+            "PATH":""
+        },
+        "command":["ls"]
+    },
+    {
+        "name":"[Path handling] 'PATH=/bin'",
+        "env":{
+            "PATH":"/bin"
+        },
+        "command":["ls"]
+    },
+    {
+        "name":"[Path handling] 'PATH=/invalid:invalid'",
+        "env":{
+            "PATH":"/invalid:invalid"
+        },
+        "command":["ls"]
+    },
+    {
+        "name":"[Path handling] 'PATH=/invalid:invalid:/bin:/usr/bin'",
+        "env":{
+            "PATH":"/invalid:invalid:/bin:/usr/bin"
+        },
+        "command":["ls"]
+    },
+    {
+        "name":"[Error handling] Execute a directory",
+        "command":["./src"]
+    },
+    {
+        "name":"[Error handling] SegFault without core dump",
+        "command":["./tests/tester/files/segv.sh"]
+    },
+    {
+        "name":"[Built-in exit] Basic",
+        "command":["exit"]
+    },
+    {
+        "name":"[Built-in exit] With value",
+        "command":["exit 12"]
+    },
+    {
+        "name":"[Built-in exit] With value and many tabs",
+        "command":["exit \t\t                  \t\t 12\t      "]
+    },
+    {
+        "name":"[Built-in exit] With invalid value",
+        "command":["exit lol"]
+    },
+    {
+        "name":"[Built-in exit] With invalid value and many tabs",
+        "command":["exit \t\t         \t 1 \t \t     lol"]
+    },
+    {
+        "name":"[Built-in exit] With bad formated value",
+        "command":["exit 12lol"]
+    },
+    {
+        "name":"[Built-in cd] Basic",
+        "command":[
+            "cd ..",
+            "sleep 0.5",
+            "ls -l"
+        ]
+    },
+    {
+        "name":"[Built-in cd] Invalid direction",
+        "command":["cd invalid"]
+    },
+    {
+        "name":"[Built-in cd] Multiple direction changement",
+        "command":[
+            "cd ..",
+            "sleep 0.5",
+            "ls -l",
+            "sleep 0.5",
+            "cd /usr",
+            "sleep 0.5",
+            "ls -l"
+        ]
+    },
+    {
+        "name":"[Built-in env] Basic",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":["env"],
+        "matching":[
+            "SCHOOL=EPITECH",
+            "USER=STUDENT"
+        ]
+    },
+    {
+        "name":"[Built-in setenv] Basic",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":[
+            "setenv NAME VALUE",
+            "env"
+        ],
+        "matching":[
+            "SCHOOL=EPITECH",
+            "USER=STUDENT",
+            "NAME=VALUE"
+        ]
+    },
+    {
+        "name":"[Built-in setenv] Multiple set",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":[
+            "setenv NAME VALUE",
+            "sleep 0.5",
+            "setenv NAME2 VALUE2",
+            "env"
+        ],
+        "matching":[
+            "SCHOOL=EPITECH",
+            "USER=STUDENT",
+            "NAME2=VALUE2",
+            "NAME=VALUE"
+        ]
+    },
+    {
+        "name":"[Built-in unsetenv] No arguments",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":[
+            "setenv",
+            "sleep 0.5",
+            "env"
+        ],
+        "matching":[
+            "SCHOOL=EPITECH",
+            "USER=STUDENT"
+        ]
+    },
+    {
+        "name":"[Built-in unsetenv] Too many arguments",
+        "command":[
+            "setenv NAME VALUE LOL"
+        ]
+    },
+    {
+        "name":"[Built-in unsetenv] Basic",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":[
+            "unsetenv USER",
+            "sleep 0.5",
+            "env"
+        ],
+        "matching":["SCHOOL=EPITECH"],
+        "mismatching":["USER=STUDENT"]
+    },
+    {
+        "name":"[Built-in unsetenv] Multiple unset",
+        "env":{
+            "SCHOOL":"EPITECH",
+            "USER":"STUDENT"
+        },
+        "command":[
+            "unsetenv USER SCHOOL",
+            "sleep 0.5",
+            "env"
+        ],
+        "mismatching":[
+            "SCHOOL=EPITECH",
+            "USER=STUDENT"
+        ]
+    },
+    {
+        "name":"[Built-in unsetenv] Too few arguments",
+        "command":["unsetenv"]
+    }
+]
