@@ -15,7 +15,6 @@ où se trouve l'executable de l'interpréteur de commandes.
 .
 ├── mysh
 └── tests
-    ├── criterion
     └── tester
         ├── compare.py
         ├── files
