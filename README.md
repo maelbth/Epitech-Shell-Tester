@@ -49,7 +49,7 @@ Attention à la syntaxe.
 
 * Création d'un test simple
 
-Les commandes lister sont executer à la suite.
+Les commandes listées sont exécutées à la suite.
 
 ```json
 {
