@@ -74,8 +74,12 @@
         "command":["./src"]
     },
     {
-        "name":"[Error handling] SegFault without core dump",
-        "command":["./tests/tester/files/segv.sh"]
+        "name":"[Error handling] SegFault",
+        "command":["./tests/tester/files/segv"]
+    },
+    {
+        "name":"[Error handling] SegFault with core dump",
+        "command":["./tests/tester/files/segv_dump"]
     },
     {
         "name":"[Built-in exit] Basic",
@@ -227,5 +231,76 @@
     {
         "name":"[Built-in unsetenv] Too few arguments",
         "command":["unsetenv"]
+    },
+    {
+        "name":"[Semicolons] Basic",
+        "command":[
+            "mkdir semi ; touch semi/lol ; ls semi ; rm semi/lol ; rmdir semi"
+        ]
+    },
+    {
+        "name":"[Semicolons] Wrong command first",
+        "command":["invalid ; ls"]
+    },
+    {
+        "name":"[Semicolons] Wrong command last",
+        "command":["ls ; invalid"]
+    },
+    {
+        "name":"[Semicolons] Multiple",
+        "command":[
+            "ls -l ; ls",
+            "touch test ; ls test ; rm test"
+        ]
+    },
+    {
+        "name":"[Redirection] Missing command",
+        "command":["> test"]
+    },
+    {
+        "name":"[Redirection] Invalid",
+        "command":["ls >"]
+    },
+    {
+        "name":"[Redirection] Multiple",
+        "command":["ls > test < lol"]
+    },
+    {
+        "name":"[Redirection] Basic input",
+        "command":["grep ante < tests/tester/files/text"]
+    },
+    {
+        "name":"[Redirection] Invalid input",
+        "command":["grep test < invalid"]
+    },
+    {
+        "name":"[Redirection] Basic output",
+        "command":[
+            "ls > test",
+            "sleep 0.5",
+            "cat test",
+            "sleep 0.5",
+            "rm test"
+        ]
+    },
+    {
+        "name":"[Redirection] Basic append",
+        "command":[
+            "ls > test",
+            "sleep 0.5",
+            "cat /etc/resolv.conf >> test",
+            "sleep 0.5",
+            "cat test",
+            "sleep 0.5",
+            "rm test"
+        ]
+    }
+    ,
+    {
+        "name":"[Redirection] Basic here document",
+        "command":[
+            "ls << EOF",
+            "sleep 0.5"
+        ]
     }
 ]

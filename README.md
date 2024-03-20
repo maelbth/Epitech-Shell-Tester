@@ -15,6 +15,7 @@ où se trouve l'executable de l'interpréteur de commandes.
 .
 ├── mysh
 └── tests
+    ├── criterion
     └── tester
         ├── compare.py
         ├── files
@@ -49,7 +50,7 @@ Attention à la syntaxe.
 
 * Création d'un test simple
 
-Les commandes listées sont exécutées à la suite.
+Les commandes lister sont executer à la suite.
 
 ```json
 {
