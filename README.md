@@ -35,6 +35,19 @@ python ./tests/tester/tester.py
 
 ## Comprendre les résultats
 
+Vous trouverez ici quelques informations pour comprendre les résultats.
+
+### Comment sont-ils affichés
+
+```
+- Execute test: $(nom du test)
+        $('OK' si réussi sinon 'KO')
+
+$(détails du test si nécessaire)
+```
+
+### Que contient les détails
+
 * Lorsque le mot clé `matching` est donnée, le test vérifie que les arguments
 sont présents dans le résultat du test.
 
@@ -43,15 +56,7 @@ arguments __ne sont pas__ présents dans le résultat du test.
 
 * Autrement, le test vérifie que le résultat est identique.
 
-> Si le test échoue, l'erreur associée est affichée.
-
-__Exemple d'un test réussi__
-
-![success](./assets/success.png)
-
-__Exemple d'un test échoué__
-
-![failure](./assets/failure.png)
+> Les détails ne sont affichés que si le test échoue.
 
 ## Aller plus loin !
 
