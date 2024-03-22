@@ -15,13 +15,15 @@ où se trouve l'executable de l'interpréteur de commandes.
 .
 ├── mysh
 └── tests
-    ├── criterion
     └── tester
-        ├── compare.py
-        ├── files
-        │   └── segv.sh
-        ├── tester.py
-        └── tests.json
+    │   ├── files
+    │   ├── segv
+    │   ├── segv_dump
+    │   └── text
+    ├── modules
+    │   └── compare.py
+    ├── tester.py
+    └── tests.json
 ```
 
 ## Démarrage
