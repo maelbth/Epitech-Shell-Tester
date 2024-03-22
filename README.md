@@ -45,6 +45,14 @@ arguments __ne sont pas__ présents dans le résultat du test.
 
 > Si le test échoue, l'erreur associée est affichée.
 
+__Exemple d'un test réussi__
+
+![success](./assets/success.png)
+
+__Exemple d'un test échoué__
+
+![failure](./assets/failure.png)
+
 ## Aller plus loin !
 
 Vous pouvez créer vos propres tests en les ajoutant [ici](./tests.json).

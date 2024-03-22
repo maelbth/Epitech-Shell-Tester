@@ -30,13 +30,15 @@ def run(test):
         input=command, capture_output=True, text=True, env=env)
 
     if 'mismatching' in test:
-        passed = compare.mismatch(ref, my, test['mismatching'])
+        passed, message = compare.mismatch(ref, my, test['mismatching'])
     elif 'matching' in test:
-        passed = compare.match(ref, my, test['matching'])
+        passed, message = compare.match(ref, my, test['matching'])
     else:
-        passed = compare.result(ref, my)
+        passed, message = compare.result(ref, my)
     if (passed):
         print("✅\tOK: Test passed.\n")
+    else:
+        print("❌\tKO: Test failed:", message)
     return (passed)
     
 
