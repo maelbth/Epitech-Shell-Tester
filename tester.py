@@ -35,6 +35,8 @@ def run(test):
         passed = compare.match(ref, my, test['matching'])
     else:
         passed = compare.result(ref, my)
+    if (passed):
+        print("✅\tOK: Test passed.\n")
     return (passed)
     
 

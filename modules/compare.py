@@ -12,7 +12,6 @@ def result(ref, my):
         print("❌\tKO: Test failed: Exit status doesn't match.\n")
         print(f"\nExpected :\n{ref.returncode}\n\nGot :\n{my.returncode}\n")
         return (False)
-    print("✅\tOK: Test passed.\n")
     return (True)
 
 def mismatch(my, ref, patterns):
@@ -24,7 +23,6 @@ def mismatch(my, ref, patterns):
         print("❌\tKO: Test failed: Exit status doesn't match.\n")
         print(f"\nExpected :\n{ref.returncode}\n\nGot :\n{my.returncode}\n")
         return (False)
-    print("✅\tOK: Test passed.\n")
     return (True)
 
 def match(ref, my, patterns):
@@ -36,5 +34,4 @@ def match(ref, my, patterns):
         print("❌\tKO: Test failed: Exit status doesn't match.\n")
         print(f"\nExpected :\n{ref.returncode}\n\nGot :\n{my.returncode}\n")
         return (False)
-    print("✅\tOK: Test passed.\n")
     return (True)
