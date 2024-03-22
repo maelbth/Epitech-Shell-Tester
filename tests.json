@@ -30,6 +30,10 @@
         "command":["ls invalid"]
     },
     {
+        "name":"[Basic] Execute a non executable file",
+        "command":["./Makefile"]
+    },
+    {
         "name":"[Line formatting] Many spaces and tabs",
         "command":["\t\t    ls\t     \t-l    \t\t  \t -a /usr   \t\t"]
     },
@@ -294,8 +298,7 @@
             "sleep 0.5",
             "rm test"
         ]
-    }
-    ,
+    },
     {
         "name":"[Redirection] Basic here document",
         "command":[

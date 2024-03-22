@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
+from modules import compare
 from shutil import which
 from sys import stderr
 from json import load
 import subprocess
-import compare
 import os
 
 TESTS_PATH = (os.getcwd() + "/tests/tester/tests.json")
@@ -24,10 +24,10 @@ def run(test):
         env = test['env']
     else:
         env = None
-    ref = subprocess.run(
-        REF_PATH, input=command, capture_output=True, text=True, env=env)
-    my = subprocess.run(
-        BIN_PATH, input=command, capture_output=True, text=True, env=env)
+    ref = subprocess.run(REF_PATH,
+        input=command, capture_output=True, text=True, env=env)
+    my = subprocess.run(BIN_PATH,
+        input=command, capture_output=True, text=True, env=env)
 
     if 'mismatching' in test:
         passed = compare.mismatch(ref, my, test['mismatching'])
@@ -62,13 +62,13 @@ def main():
             total = total + 1
 
         if (passed != total):
-            print("⚠️\tWarning: Some tests FAILURE.")
+            print(f"⚠️\tWarning: Some tests failed → {passed}/{total}.")
             exit(EXIT_FAILURE)
         else:
             print("🎉\tSuccess: All tests passed.")
             exit(EXIT_SUCCESS)
     except KeyboardInterrupt:
-        print("\n⚠️\tWarning: The test were canceled !")
+        print("\n⚠️\tWarning: The tester was canceled !")
     except Exception as error:
         print("⚠️\tWarning:", error, "!", file=stderr)
 
