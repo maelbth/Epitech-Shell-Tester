@@ -7,8 +7,10 @@ from json import load
 import subprocess
 import os
 
-TESTS_PATH = (os.getcwd() + "/tests/tester/tests.json")
-BIN_PATH = (os.getcwd() + "/mysh")
+CWD = os.getcwd()
+
+TESTS_PATH = (CWD + "/tests/tester/tests.json")
+BIN_PATH = (CWD + "/mysh")
 REF_PATH = which('tcsh')
 
 EXIT_SUCCESS = 0
